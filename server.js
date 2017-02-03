@@ -23,7 +23,7 @@ const defaults = require('./config/defaults.json');
 const strings = require('./config/strings.json');
 const webpackDevConfig = require('./webpack.dev.config');
 
-const Router = require('./lib/routes/index');
+const Router = require('./lib/routes/router');
 
 const app = express();
 const port = (process.env.NODE_ENV === 'test' ? utilities.expressUtil.randomPort() : defaults.DEFAULT_PORT); // Use a random port when testing.
