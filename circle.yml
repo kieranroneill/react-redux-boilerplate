@@ -1,0 +1,33 @@
+machine:
+  timezone:
+    Europe/London
+
+  node:
+    # LTS (as of 10/01/2017)
+    version: 6.9.5
+
+  environment:
+    NODE_ENV: test
+    SERVER_IP: 127.0.0.1
+
+dependencies:
+  pre:
+    - npm prune && npm update
+
+  override:
+    - npm install
+    - npm run build
+
+test:
+  override:
+    - npm run lint
+    - npm run test:reporter:
+        environment:
+          # Create JUnit style test data for the test summary section.
+          MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
+
+  post:
+    # Save coverage reports as an artifact.
+    - mkdir -p $CIRCLE_ARTIFACTS/coverage && cp -r ./coverage/* $CIRCLE_ARTIFACTS/coverage
+    # Deploy coverage reports to Codecov.
+    - bash <(curl -s https://codecov.io/bash)

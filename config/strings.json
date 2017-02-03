@@ -1,0 +1,17 @@
+{
+  "APP_TITLE": "Unicorns!",
+
+  "endpoints": {
+    "API": "/api",
+    "INFO": "/info"
+  },
+
+  "headers": {
+    "POWERED_BY": "X-Powered-By"
+  },
+
+  "routes": {
+    "ERROR": "error",
+    "HOME": "home"
+  }
+}
