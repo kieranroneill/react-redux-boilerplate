@@ -20,6 +20,7 @@
     "build": "webpack",
     "eslint": "eslint",
     "istanbul": "istanbul",
+    "jsonlint": "jsonlint",
     "lint": "eslint --ext .js --ext .jsx . && sass-lint -v && jsonlint ./config/*.json -q",
     "mocha": "mocha",
     "postinstall": "(cp -n .env.example .env || true)",
